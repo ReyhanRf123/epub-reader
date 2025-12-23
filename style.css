@@ -1,0 +1,240 @@
+/* IMPORT FONT KEREN (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #4e73df;
+    --secondary-color: #858796;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: #444;
+    transition: background 0.3s ease;
+}
+
+/* --- GLASS EFFECT (Kartu Kaca) --- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: var(--glass-border);
+    box-shadow: var(--card-shadow);
+}
+
+/* --- NAVIGASI --- */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- TOMBOL --- */
+.btn {
+    border-radius: 50px; /* Tombol Pill */
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background: linear-gradient(45deg, #4e73df, #224abe);
+    border: none;
+    box-shadow: 0 4px 15px rgba(78, 115, 223, 0.4);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 115, 223, 0.6);
+}
+
+/* --- KARTU BUKU (Dashboard) --- */
+.book-card {
+    border: none;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.book-icon-wrapper {
+    background: #f0f3ff;
+    padding: 30px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- FORM LOGIN/REGISTER --- */
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+}
+.form-control {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    background: rgba(255,255,255,0.9);
+}
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.2);
+    border-color: var(--primary-color);
+}
+
+/* --- READER PAGE --- */
+#viewer {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.nav-controls {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* ============================ */
+/* DARK MODE (Wajib)     */
+/* ============================ */
+body.dark-mode {
+    background: #0f172a; /* Biru malam gelap */
+    color: #cbd5e1;
+}
+body.dark-mode .glass-card {
+    background: rgba(30, 41, 59, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+body.dark-mode .book-card {
+    background: #1e293b;
+    color: white;
+}
+body.dark-mode .text-dark { color: #fff !important; }
+body.dark-mode .text-muted { color: #94a3b8 !important; }
+body.dark-mode .book-icon-wrapper { background: #334155; border-color: #475569; }
+body.dark-mode .navbar-brand { color: white !important; }
+body.dark-mode .form-control {
+    background: #334155;
+    border-color: #475569;
+    color: white;
+}
+body.dark-mode .form-control::placeholder { color: #94a3b8; }
+body.dark-mode .btn-light {
+    background: #334155;
+    color: white;
+    border: 1px solid #475569;
+}
+
+/* ========================================= */
+/* READER UI - MODERN STYLE                  */
+/* ========================================= */
+
+/* Container Utama Reader */
+.reader-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Mencegah scrollbar ganda */
+}
+
+/* Header Reader (Glassmorphism) */
+.reader-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 10px 20px;
+    z-index: 100;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s, border 0.3s;
+}
+
+/* Area Buku (Viewer) */
+#viewer {
+    flex-grow: 1; /* Mengisi sisa ruang */
+    background: #fff;
+    margin: 20px auto; /* Tengah */
+    width: 95%;
+    max-width: 900px; /* Batas lebar agar enak dibaca di layar lebar */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08); /* Efek bayangan kertas */
+    border-radius: 8px; /* Sudut tumpul */
+    overflow: hidden;
+}
+
+/* Footer Navigasi */
+.reader-footer {
+    background: white;
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+    transition: background 0.3s;
+}
+
+/* Tombol Floating Highlight yang lebih cantik */
+#highlight-btn {
+    position: absolute;
+    display: none;
+    z-index: 1000;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateX(-50%); /* Tengah horizontal */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+#highlight-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    background: #000;
+}
+#highlight-btn::after {
+    /* Panah kecil di bawah tombol */
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* --- DARK MODE ADJUSTMENTS FOR READER --- */
+body.dark-mode .reader-header {
+    background: rgba(30, 41, 59, 0.95);
+    border-bottom: 1px solid #334155;
+    color: #e2e8f0;
+}
+body.dark-mode .reader-footer {
+    background: #1e293b;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+}
+body.dark-mode #viewer {
+    background: #121212; /* Warna kertas gelap */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+body.dark-mode .btn-light {
+    background: #334155;
+    border: 1px solid #475569;
+    color: white;
+}
+body.dark-mode .text-primary { color: #60a5fa !important; }
