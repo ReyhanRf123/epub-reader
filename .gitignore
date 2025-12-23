@@ -1,0 +1,16 @@
+# 1. File Sampah Sistem Operasi (Mac/Windows)
+.DS_Store
+Thumbs.db
+
+# 2. Folder Settingan Editor (VS Code dll)
+.vscode/
+.idea/
+
+# 3. Folder Uploads (PENTING!)
+# Kita mau folder 'uploads' ada strukturnya, tapi file epub di dalamnya JANGAN ikut diupload
+uploads/*
+!uploads/.gitkeep
+
+# 4. Dependency (Jaga-jaga kalau nanti pake composer)
+vendor/
+node_modules/
